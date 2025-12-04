@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "944429639165",
+    "firebase_url": "https://kipgra-472312-default-rtdb.firebaseio.com",
+    "project_id": "kipgra-472312",
+    "storage_bucket": "kipgra-472312.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944429639165:android:6bc347906544b66a74e594",
+        "android_client_info": {
+          "package_name": "com.gobbogtechnologies.miograuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944429639165-fkjhe061dorsutgt37k9glpdls5k475i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gobbogtechnologies.miograuser",
+            "certificate_hash": "dd8a943c61764d63c1aa8adfb72173de4a62463c"
+          }
+        },
+        {
+          "client_id": "944429639165-orca9lj72ltm3mstln1f0tu8qbf4n64o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gobbogtechnologies.miograuser",
+            "certificate_hash": "9bf8e78e88386d0fd0e88788f03752747e62e744"
+          }
+        },
+        {
+          "client_id": "944429639165-vjj0fvcb1j6jibf84sji4u9qao4msbok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTH7k58IhNJRckHPz3eBHQf11L2Oa1j5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944429639165-dvcj0lsd7ihq7f4991jcgmu8u26q0c54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944429639165:android:a24b81801554e75b74e594",
+        "android_client_info": {
+          "package_name": "com.miogra.pilot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944429639165-vjj0fvcb1j6jibf84sji4u9qao4msbok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTH7k58IhNJRckHPz3eBHQf11L2Oa1j5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944429639165-dvcj0lsd7ihq7f4991jcgmu8u26q0c54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944429639165:android:bdf056bfd24d28dc74e594",
+        "android_client_info": {
+          "package_name": "com.miogra.seller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944429639165-vjj0fvcb1j6jibf84sji4u9qao4msbok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTH7k58IhNJRckHPz3eBHQf11L2Oa1j5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944429639165-dvcj0lsd7ihq7f4991jcgmu8u26q0c54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
