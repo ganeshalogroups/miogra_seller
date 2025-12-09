@@ -353,21 +353,21 @@ Future<void> fetchAndShowOrders() async {
                     ),
                   ],
                 ),
-                if (_currentOrdersInDialog.length > 1) ...[
-                  const SizedBox(height: 4),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Scroll to view all orders >>',
-                      style: CustomTextStyle.redText,
-                    ),
-                  ),
-                ],
+                // if (_currentOrdersInDialog.length > 1) ...[
+                //   const SizedBox(height: 4),
+                //   Align(
+                //     alignment: Alignment.centerRight,
+                //     child: Text(
+                //       'Scroll to view all orders >>',
+                //       style: CustomTextStyle.redText,
+                //     ),
+                //   ),
+                // ],
               ],
             ),
             content: SizedBox(
               width: MediaQuery.of(context).size.width * 0.76,
-              height: 300,
+              height: 200,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: _currentOrdersInDialog.length,
@@ -378,12 +378,14 @@ Future<void> fetchAndShowOrders() async {
                   final isRejected = _rejectedOrderIds.contains(orderId);
                   final rejectNoteController =
                       _rejectControllers.putIfAbsent(orderId, () => TextEditingController());
-
+print("ORDER SAMBAVAM  $_currentOrdersInDialog");
                   // your existing card design...
                   return SizedBox(
+                    
                     width: MediaQuery.of(context).size.width * 0.70,
                     child: SingleChildScrollView(
                       child: Container(
+                        // height: 180,
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: Colors.grey[100],
@@ -399,21 +401,38 @@ Future<void> fetchAndShowOrders() async {
                             SizedBox(height: 6),
                             _buildOrderInfoText("Order Time: ",
                                 DateTime.tryParse(order['createdAt'] ?? '')?.toLocal().toString().split('.')[0] ?? ''),
+                            // SizedBox(height: 6),
+                            // _buildOrderInfoText("Customer: ", (order['customer_name'] ?? 'Unknown').toString().capitalizeFirst ?? ''),
+                            // SizedBox(height: 6),
+                            // _buildOrderInfoText("Delivery Address: ",
+                            //     (order['customer_address'] is List)
+                            //         ? order['customer_address'].join(', ')
+                            //         : order['customer_address']?.toString() ?? '',
+                            //     maxLines: 5),
+                            // SizedBox(height: 6),
+                            // _buildOrderInfoText("Total: ₹", order['finalAmount'].toString()),
+                            // SizedBox(height: 6),
+                            // _buildOrderInfoText("Customer No: ", order['customer_mobile'] ?? ''),
                             SizedBox(height: 6),
-                            _buildOrderInfoText("Customer: ", (order['customer_name'] ?? 'Unknown').toString().capitalizeFirst ?? ''),
-                            SizedBox(height: 6),
-                            _buildOrderInfoText("Delivery Address: ",
-                                (order['customer_address'] is List)
-                                    ? order['customer_address'].join(', ')
-                                    : order['customer_address']?.toString() ?? '',
-                                maxLines: 5),
-                            SizedBox(height: 6),
-                            _buildOrderInfoText("Total: ₹", order['finalAmount'].toString()),
-                            SizedBox(height: 6),
-                            _buildOrderInfoText("Customer No: ", order['customer_mobile'] ?? ''),
-                            SizedBox(height: 6),
-                            _buildOrderInfoText("Payment: ", order['paymentMethod'] ?? ''),
-                            SizedBox(height: 12),
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                            itemCount: (order['ordersDetails'] as List?)?.length ?? 0,
+                              itemBuilder:( context ,foodIndex){
+                                
+                                                       return    _buildOrderInfoText("${order['ordersDetails'][foodIndex]["foodName"]}  x "??"", order['ordersDetails'][foodIndex]["quantity"]?? '');}),
+
+
+                            // Text("${orderfetchorders.foodList[index]["foodName"]}",
+                  //  'Food Name: ${orderfetchorders.orderfetchmodel['data']['data'][0]["ordersDetails"][0][ "foodName"] ??""}',
+                 //   style: CustomTextStyle.mediumblackText,
+                 // ),
+                  //            SizedBox(height: 6),
+                  //            Text(
+                  //   'Food Name: ${orderfetchorders.orderfetchmodel['data']['data'][0]["ordersDetails"][0][ "quantity"] ??0}',
+                  //   style: CustomTextStyle.grey12
+                  // ),
+                   SizedBox(height: 10),
 
                             Row(
                               children: [
@@ -1274,7 +1293,7 @@ Future<void> fetchAndShowOrders() async {
   Widget build(BuildContext context) {
     super.build(context);
     return RefreshIndicator(
-    color: Customcolors.decorationOrange,
+    color: Colors.deepPurpleAccent,
        onRefresh: () async {
        await Future.delayed(Duration(seconds: 2), () {
         return forrefresh();
@@ -1422,15 +1441,15 @@ class _OrderPaginationCardDesignState extends State<OrderPaginationCardDesign> {
                     }
 
     return InkWell(
-      onTap: () {
-        // Navigator.push(context, MaterialPageRoute( builder: (context) =>Ordersviewscreen(orderId: orderId,isfromneworderscreen: true,) ));
-        Get.to(
-            () => Ordersviewscreen(
-                  orderId: orderId,
-                  isFromOrderPaginationCard: true,
-                ),
-            preventDuplicates: false);
-      },
+      // onTap: () {
+      //   // Navigator.push(context, MaterialPageRoute( builder: (context) =>Ordersviewscreen(orderId: orderId,isfromneworderscreen: true,) ));
+      //   Get.to(
+      //       () => Ordersviewscreen(
+      //             orderId: orderId,
+      //             isFromOrderPaginationCard: true,
+      //           ),
+      //       preventDuplicates: false);
+      // },
       child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomContainer(
@@ -1863,40 +1882,40 @@ class _OrderPaginationCardDesignState extends State<OrderPaginationCardDesign> {
                                       ],
                                     ),
                                   ),
-                                Row(
-                                  mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: 'Total Bill',
-                                      style: CustomTextStyle.mediumGreyText,
-                                    ),
-                                    Row(
-                                      children: [
-                                        CustomText(
-                                          text:'₹${amountDetails.toStringAsFixed(2)}',
-                                          style: CustomTextStyle.mediumGreyText,
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            setState(() {
-                                              isExpandedHint = !isExpandedHint;
-                                            });
-                                          },
-                                          child: Icon(
-                                            isExpanded
-                                                ? MdiIcons.chevronUp
-                                                : MdiIcons.chevronDown,
-                                            color: Colors.grey.shade600,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Divider(
-                                  color: Colors.grey.shade300,
-                                ),
-                                const SizedBox(height: 13),
+                                // Row(
+                                //   mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                //   children: [
+                                //     CustomText(
+                                //       text: 'Total Bill',
+                                //       style: CustomTextStyle.mediumGreyText,
+                                //     ),
+                                //     Row(
+                                //       children: [
+                                //         CustomText(
+                                //           text:'₹${amountDetails.toStringAsFixed(2)}',
+                                //           style: CustomTextStyle.mediumGreyText,
+                                //         ),
+                                //         // InkWell(
+                                //         //   onTap: () {
+                                //         //     setState(() {
+                                //         //       isExpandedHint = !isExpandedHint;
+                                //         //     });
+                                //         //   },
+                                //         //   child: Icon(
+                                //         //     isExpanded
+                                //         //         ? MdiIcons.chevronUp
+                                //         //         : MdiIcons.chevronDown,
+                                //         //     color: Colors.grey.shade600,
+                                //         //   ),
+                                //         // ),
+                                //       ],
+                                //     ),
+                                //   ],
+                                // ),
+                                // Divider(
+                                //   color: Colors.grey.shade300,
+                                // ),
+                               const SizedBox(height: 13),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

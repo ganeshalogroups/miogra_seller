@@ -101,13 +101,13 @@ Map<int, int?> _customisationExpandedIndex = {};
                   }
     
                   return InkWell(
-                    onTap: () {
-                      Get.to(
-                          () => Ordersviewscreen(
-                                orderId: orderId,
-                                isFromOrderPaginationCard: false,
-                              ),preventDuplicates: false);
-                   },
+                  //   onTap: () {
+                  //     Get.to(
+                  //         () => Ordersviewscreen(
+                  //               orderId: orderId,
+                  //               isFromOrderPaginationCard: false,
+                  //             ),preventDuplicates: false);
+                  //  },
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: CustomContainer(
@@ -548,39 +548,39 @@ Map<int, int?> _customisationExpandedIndex = {};
                                                   ],
                                                 ),
                                               ),
-                                            Row(
-                                              mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                CustomText(
-                                                  text: 'Total Bill',
-                                                  style: CustomTextStyle.mediumGreyText,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    CustomText(
-                                                      text:'₹${amountDetails.toStringAsFixed(2)}',
-                                                      style: CustomTextStyle.mediumGreyText,
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        setState(() {
-                                                          _isFurtherExpanded[index] =!_isFurtherExpanded[index];
-                                                        });
-                                                      },
-                                                      child: Icon(
-                                                        _isFurtherExpanded[index]
-                                                            ? MdiIcons.chevronUp
-                                                            : MdiIcons.chevronDown,
-                                                        color: Colors.grey.shade600,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            Divider(color: Colors.grey.shade300,),
+                                            // Row(
+                                            //   mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                            //   children: [
+                                            //     CustomText(
+                                            //       text: 'Total Bill',
+                                            //       style: CustomTextStyle.mediumGreyText,
+                                            //     ),
+                                            //     Row(
+                                            //       children: [
+                                            //         CustomText(
+                                            //           text:'₹${amountDetails.toStringAsFixed(2)}',
+                                            //           style: CustomTextStyle.mediumGreyText,
+                                            //         ),
+                                            //         // InkWell(
+                                            //         //   // onTap: () {
+                                            //         //   //   setState(() {
+                                            //         //   //     _isFurtherExpanded[index] =!_isFurtherExpanded[index];
+                                            //         //   //   });
+                                            //         //   // },
+                                            //         //   child: Icon(
+                                            //         //     _isFurtherExpanded[index]
+                                            //         //         ? MdiIcons.chevronUp
+                                            //         //         : MdiIcons.chevronDown,
+                                            //         //     color: Colors.grey.shade600,
+                                            //         //   ),
+                                            //         // ),
+                                            //       ],
+                                            //     ),
+                                            //   ],
+                                            // ),
+                                           // Divider(color: Colors.grey.shade300,),
                                             const SizedBox(
-                                              height: 7,
+                                              height: 13,
                                             ),
                                             order["assigneeDetails"] != null
                                                 ? Row(

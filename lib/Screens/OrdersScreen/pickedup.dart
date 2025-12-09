@@ -79,7 +79,7 @@ final ProfilScreeenController profilScreeenController = Get.put(ProfilScreeenCon
                     var delPartnername =order["assigneeDetails"]?["name"] ?? '';
                     var delPartnerContact =order["assigneeDetails"]?["mobileNo"] ?? '';
                     var orderStatus = order["orderStatus"] ?? '';
-                    var delManImage = "$baseImageUrl${order["assigneeDetails"]?["imgUrl"]}";
+                    var delManImage = order["assigneeDetails"]?["imgUrl"];
                     var deliverytip = order['amountDetails']['tips'];
                     dynamic _calculateTotalPrice(orderItem) {
                       // dynamic foodPrice = int.tryParse(orderItem["foodPrice"]?.toString() ?? '0') ??0;
@@ -137,17 +137,16 @@ final ProfilScreeenController profilScreeenController = Get.put(ProfilScreeenCon
                     removeTop: true,
                     context: context,
                       child: InkWell(
-                        onTap: () {
-                          // Get.to(Ordersviewscreen(orderId: orderId,));
-                          //  Navigator.push(context,
-                          //  MaterialPageRoute( builder: (context) =>Ordersviewscreen(orderId: orderId,isfromneworderscreen: false,) ));
-                          Get.to(
-                              () => Ordersviewscreen(
-                                    orderId: orderId,
-                                    isFromOrderPaginationCard: false,
-                                  ),
-                              preventDuplicates: false);
-                        },
+                        // onTap: () {
+                         
+                         
+                        //   Get.to(
+                        //       () => Ordersviewscreen(
+                        //             orderId: orderId,
+                        //             isFromOrderPaginationCard: false,
+                        //           ),
+                        //       preventDuplicates: false);
+                        // },
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: CustomContainer(
@@ -667,50 +666,50 @@ final ProfilScreeenController profilScreeenController = Get.put(ProfilScreeenCon
                                                     ],
                                                   ),
                                                 ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  CustomText(
-                                                    text: 'Total Bill',
-                                                    style: CustomTextStyle
-                                                        .mediumGreyText,
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      CustomText(
-                                                        text:
-                                                            '₹${amountDetails.toStringAsFixed(2)}',
-                                                        style: CustomTextStyle
-                                                            .mediumGreyText,
-                                                      ),
-                                                      InkWell(
-                                                        onTap: () {
-                                                          setState(() {
-                                                            _isFurtherExpanded[
-                                                                    index] =
-                                                                !_isFurtherExpanded[
-                                                                    index];
-                                                          });
-                                                        },
-                                                        child: Icon(
-                                                          _isFurtherExpanded[
-                                                                  index]
-                                                              ? MdiIcons.chevronUp
-                                                              : MdiIcons
-                                                                  .chevronDown,
-                                                          color: Colors
-                                                              .grey.shade600,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                              Divider(
-                                                color: Colors.grey.shade300,
-                                              ),
+                                              // Row(
+                                              //   mainAxisAlignment:
+                                              //       MainAxisAlignment
+                                              //           .spaceBetween,
+                                              //   children: [
+                                              //     CustomText(
+                                              //       text: 'Total Bill',
+                                              //       style: CustomTextStyle
+                                              //           .mediumGreyText,
+                                              //     ),
+                                                  // Row(
+                                                  //   children: [
+                                                  //     CustomText(
+                                                  //       text:
+                                                  //           '₹${amountDetails.toStringAsFixed(2)}',
+                                                  //       style: CustomTextStyle
+                                                  //           .mediumGreyText,
+                                                  //     ),
+                                                  //     // InkWell(
+                                                  //     //   onTap: () {
+                                                  //     //     setState(() {
+                                                  //     //       _isFurtherExpanded[
+                                                  //     //               index] =
+                                                  //     //           !_isFurtherExpanded[
+                                                  //     //               index];
+                                                  //     //     });
+                                                  //     //   },
+                                                  //     //   child: Icon(
+                                                  //     //     _isFurtherExpanded[
+                                                  //     //             index]
+                                                  //     //         ? MdiIcons.chevronUp
+                                                  //     //         : MdiIcons
+                                                  //     //             .chevronDown,
+                                                  //     //     color: Colors
+                                                  //     //         .grey.shade600,
+                                                  //     //   ),
+                                                  //     // ),
+                                                  //   ],
+                                                  // ),
+                                              //   ],
+                                              // ),
+                                              // Divider(
+                                              //   color: Colors.grey.shade300,
+                                              // ),
                                               isAssigned
                                                   ? (isRejectedOrCancelled
                                                       ? const SizedBox() // Hide delivery details if rejected or cancelled
@@ -730,7 +729,7 @@ final ProfilScreeenController profilScreeenController = Get.put(ProfilScreeenCon
                                                                     height: 35,
                                                                     width: 35,
                                                                     child: delManImage !=null  &&delManImage.isNotEmpty
-                                                                        ? Image.network(delManImage,
+                                                                        ? Image.network( "$baseImageUrl$delManImage",
                                                                             fit: BoxFit
                                                                                 .cover)
                                                                         : Image.asset(

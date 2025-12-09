@@ -296,6 +296,7 @@ class MyApp extends StatelessWidget {
             providers: [
               ChangeNotifierProvider(create: (_) => CategoryPaginations()),
               ChangeNotifierProvider(create: (_) => MenuPagenations()),
+             
               ChangeNotifierProvider(create: (_) => OrderviewPaginations()),
             ],
             child: GetMaterialApp(

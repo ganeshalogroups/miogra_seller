@@ -161,7 +161,7 @@ class _RestaurentBottomNavigationState
             index: 1,
           ),
           _buildBottomNavigationItem(
-            label: 'Insights',
+            label: 'Earnings',
             imagePath: 'assets/images/insights.png',
             index: 2,
           ),

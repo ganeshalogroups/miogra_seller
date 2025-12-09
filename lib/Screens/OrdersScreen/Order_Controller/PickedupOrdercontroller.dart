@@ -49,7 +49,7 @@ Future<void> pickget(int pageKey, String apiUrl, PagingController<int, dynamic> 
       Uri.parse('${API.ordersApi}limit=$perPage&offset=$pageKey&subAdminId=$userId&orderStatus=orderAssigned,orderPickedUped,deliverymanReachedDoor,delivered,rejected,cancelled,roundTripStarted'),
       headers: API().headers,
     );
-
+print('PICKED STATUS ${API.ordersApi}limit=$perPage&offset=$pageKey&subAdminId=$userId&orderStatus=orderAssigned,orderPickedUped,deliverymanReachedDoor,delivered,rejected,cancelled,roundTripStarted');
 
     if (response.statusCode == 200 || response.statusCode == 201 || response.statusCode == 202) {
 

@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 class Orderfetchcontroller extends GetxController{
 
 dynamic orderfetchmodel;
+List<Map<String, String>> foodList = [];
 var orderfetchloading = false.obs;
 
 Future<void> orderFetch() async {
@@ -29,8 +30,22 @@ Future<void> orderFetch() async {
     if (response.statusCode == 200 || response.statusCode == 201 || response.statusCode == 202) {
       var result = jsonDecode(response.body);
  print("Order fetch:${API.orderfetch}");
+ print(  "subAdminId: $userId");
       
       orderfetchmodel = result;
+ 
+
+  for (var order in result["data"]["data"]) {
+    if (order["ordersDetails"] != null) {
+      for (var item in order["ordersDetails"]) {
+        foodList.add({
+          "foodName": item["foodName"]?.toString() ?? "",
+          "quantity": item["quantity"]?.toString() ?? "",
+        });
+      }
+    }
+  }
+
 
 
 
