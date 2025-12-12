@@ -40,7 +40,8 @@ class ImageUploader {
           },
         ),
       );
-
+print("FILLLLE   UPLOADD   ${formData}");
+print("AAAAAPPPPP     ${API.bannerUpload}");
       var result = response.data;
       print("file upload res ${response.statusCode}");
       if (response.statusCode == 200) {

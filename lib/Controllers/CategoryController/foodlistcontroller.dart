@@ -220,13 +220,16 @@ class FoodListController extends GetxController {
           "isRecommended": false
         }),
       );
-      // print("IF SHOWING");
+       print("IF SHOWING   $foodImage");
       print("additionalimages: ${additionalImages}");
       print(
           'FOOD LIST api..........${API.createFoodlist}restaurantId=$userId&foodCategoryId=$foodCatId');
       print('FOOD LIST  Response Body: ${response.body}');
       print('FOOD LIST  response${response.statusCode}');
       print('Filter $catres');
+
+
+    //  print("FOOD DATA $foodCreateData");
       if (response.statusCode == 200 ||
           response.statusCode == 201 ||
           response.statusCode == 202) {

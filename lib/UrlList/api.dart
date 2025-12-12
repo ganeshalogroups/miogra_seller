@@ -2,8 +2,8 @@ import 'package:miogra_seller/Constants/const_variables.dart';
 
 class API {
   
-   //  static String microServiceUrl  =  "https://backend.miogra.com/";
-    static String microServiceUrl  =  "https://dev.miogra.com/";
+   // static String microServiceUrl  =  "https://backend.miogra.com/";
+      static String microServiceUrl  =  "https://dev.miogra.com/";
 
 //registerapi
   static String register = '${microServiceUrl}api/user/subAdmin/register';
@@ -96,8 +96,8 @@ static String individualstatus = "${microServiceUrl}api/user/subAdmin/update/ind
 
 static String singleResStatusUpdate ="${microServiceUrl}api/sense/foodMigrate/singleResStatusUpdate";
 
-  static String imageuploadurl =
-      '${microServiceUrl}api/utility/file/bannerUpload';
+ static String imageuploadurl =
+     '${microServiceUrl}api/utility/file/bannerUpload';
 
   static String appConfigUrl = '${microServiceUrl}api/utility/appConfig';
 
